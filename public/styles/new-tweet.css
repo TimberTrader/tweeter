@@ -1,0 +1,22 @@
+.new-tweet {
+    border-radius: 1em;
+    border: 5em;
+    background-color: lightgrey;
+    padding: 12px;
+}
+
+.errColor {
+    color: red;
+}
+
+.new-tweet h2 {
+    border-bottom: 1px solid #244751;
+    margin: 10px 0px;
+}
+
+textarea {
+    width: 100%;
+}
+.counter {
+    float: right;
+}
