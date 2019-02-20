@@ -11,47 +11,35 @@
       <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
       <link rel="stylesheet" href="/styles/tweet.css" type="text/css" /> 
       <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <!-- External JS -->
+      <!-- External JS -->
       <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-    <!-- App JS -->
-      <script type="text/javascript" src="/scripts/app.js"></script>
-      <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  </head>
-
-  <body>
-
-    <!-- Top nav bar (fixed) -->
-    <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
-      <span class="header">Tweeter</span>
-    </nav>
-
-    <!-- 1 of 2 containers: holds "new tweet" & "container for all tweets -->
-    <main class="container">
-    </main>
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form>
-        <textarea name="text" placeholder="What are you humming about?"></textarea>
-        <input type="submit" value="Tweet">
-        <span class="counter">140</span>
-      </form>
-    </section>
-
-    <!-- 2 of 2 CONTAINER (used to hold all published tweets)-->
-    <section id= "tweets-container" class= "allTweets">
-      <article class= "tweet" action= "/tweets">
-      <!-- 1 of 3: identify tweeter -->
-        <header>
-              <img class= "avatar" />
-              <h2 class= "user"></h2>
-              <p class= "handle"></p>
-          </header>
-      <!--2 of 3: content of published tweet-->
-          <div class= content></div> 
-      <!--3 of 3: identify time from publish date-->
-          <footer></footer>
-      </article>
-    </section>
-  </body>
-</html>
+    </head>
+      
+      <body>
+        
+        <!-- Top nav bar (fixed) -->
+        <nav id="nav-bar">
+          <img class="logo" src="/images/bird.png" width="80px" height="80px">
+          <span class="header">Tweeter</span>
+        </nav>
+        
+        <!-- 1 of 2 containers: holds "new tweet" & "container for all tweets -->
+        <main class="container">
+        </main>
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form>
+            <textarea name="text" placeholder="What are you humming about?"></textarea>
+            <input type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </form>
+        </section>
+        
+        <!-- 2 of 2 CONTAINER (used to hold all published tweets)-->
+        <section id= "tweets-container" class= "allTweets"></section>
+        <!-- App JS -->
+          <script type="text/javascript" src="/scripts/app.js"></script>
+          <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+      </body>
+      </html>
+      

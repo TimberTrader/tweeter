@@ -4,7 +4,7 @@ $(document).ready(function() {
         console.log(length);
         $(this).siblings(".counter").text(length);
         if (length >= 0) {
-            $(this).siblings(".counter");
+            $(this).siblings(".counter").removeClass("errColor")
         } else {
             $(this).siblings(".counter").addClass("errColor");
         }
