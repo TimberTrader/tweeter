@@ -1,0 +1,32 @@
+.tweet {
+    border-radius: 1em;
+    border: 5em;
+    background-color: white;
+    margin-top: 12px;
+    margin-left: 300px;
+    margin-right: 300px
+}
+
+.tweet header {
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    padding: 0px 12px;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.user {
+    flex: 1;
+    padding: 0px 12px;
+}
+
+.tweet footer {
+    border-top: 1px solid lightgrey;
+    padding: 12px
+}
+
+.tweet div {
+    min-height: 60px;
+    padding: 9px 18px
+}

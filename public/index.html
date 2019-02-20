@@ -6,9 +6,10 @@
     <!-- External CSS -->
       <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
       <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
+      <!-- App CSS -->
       <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <!-- App CSS -->
       <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+      <link rel="stylesheet" href="/styles/tweet.css" type="text/css" /> 
       <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <!-- External JS -->
       <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -25,7 +26,7 @@
       <span class="header">Tweeter</span>
     </nav>
 
-    <!-- Page-specific (main) content here -->
+    <!-- 1 of 2 containers: holds "new tweet" & "container for all tweets -->
     <main class="container">
     </main>
     <section class="new-tweet">
@@ -37,5 +38,20 @@
       </form>
     </section>
 
+    <!-- 2 of 2 CONTAINER (used to hold all published tweets)-->
+    <section id= "tweets-container" class= "allTweets">
+      <article class= "tweet" action= "/tweets">
+      <!-- 1 of 3: identify tweeter -->
+        <header>
+              <img class= "avatar" />
+              <h2 class= "user"></h2>
+              <p class= "handle"></p>
+          </header>
+      <!--2 of 3: content of published tweet-->
+          <div class= content></div> 
+      <!--3 of 3: identify time from publish date-->
+          <footer></footer>
+      </article>
+    </section>
   </body>
 </html>

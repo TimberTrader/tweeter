@@ -8,7 +8,7 @@
 }
 
 .errColor {
-    color: red;
+    color: red;ver
 }
 
 .new-tweet h2 {
@@ -22,4 +22,8 @@ textarea {
 
 .counter {
     float: right;
+}
+
+input[form]:hover {
+    background-color: whitesmoke
 }
