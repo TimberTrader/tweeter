@@ -3,6 +3,8 @@
     border: 5em;
     background-color: lightgrey;
     padding: 12px;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
 .errColor {
@@ -17,6 +19,7 @@
 textarea {
     width: 100%;
 }
+
 .counter {
     float: right;
 }
