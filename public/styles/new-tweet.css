@@ -3,7 +3,6 @@
     border: 5em;
     background-color: lightgrey;
     padding: 12px;
-    width: 50%;
     margin: auto;
 }
 
@@ -17,7 +16,7 @@
 }
 
 textarea {
-    width: 140px;
+    width: 100%;
 }
 
 .counter {

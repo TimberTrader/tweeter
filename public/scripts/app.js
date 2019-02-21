@@ -2,29 +2,38 @@
  * Client-side JS logic goes here  jQuery is already loaded
  */
 
+$(document).ready(function() {    
 
-$(document).ready(function() { 
-
-// post form for tweet
-const $form = $(aTweet);
-
-$form.on('submit', function(event) {
-    evt.preventDefault();
-    $.ajax({
-        url: '/tweets/',
-        data: $(this).serialize(),
-        method: 'POST',
-        success: loadTweets
-        });
- })
+// returns array from what is typed into textarea
+$('#tweetForm').on('submit', function(e) {
+    e.preventDefault();
+    // checks for empty, then too much ...
+    // if ($(this).children("textarea").val() == "") {
+    //         alert("Your tweet is waiting for your input.")
+    //         return false;
+    //     } else if ($("textarea").val().length > 140) {
+    //         alert("Your tweet has exceeded the 140 character limit.")
+    //         return false;
+    //     /* now good -> posts to /tweets w/new prop's ... 
+    //             & calls loadTweets */
+    //         } else {
+                $.ajax('/tweets', {
+                data: $(this).serialize(),
+                method: 'POST',
+                complete: function(){
+                    loadTweets();
+                }
+            // })
+        })
+});
 
 function loadTweets() {
-    $.ajax({
-        url: '/tweets/',
-        method: 'GET',
-        success: renderTweets
-    });
+    $.ajax('/tweets', { method: 'GET'})
+        .then(function(tweets){
+            renderTweets(tweets);
+        });
 }
+
 // takes dataObject and maps to the html template representing a tweet
 function createTweetElement(tweetData) {
     return (
@@ -38,7 +47,9 @@ function createTweetElement(tweetData) {
             <footer>${tweetData.created_at}</footer>
         </article>`
         )};
-   
+ 
+/* renders " a single tweet" into a collection  of tweets for "tweets container"
+  calls tweet element and passes tweet object */
 function renderTweets(tweet) {
     console.log('tweet', tweet)
     tweet.forEach(tweet => {
@@ -48,4 +59,3 @@ function renderTweets(tweet) {
   };
 })
 
-renderTweets();
