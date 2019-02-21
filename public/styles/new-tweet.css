@@ -3,12 +3,12 @@
     border: 5em;
     background-color: lightgrey;
     padding: 12px;
-    margin-left: 300px;
-    margin-right: 300px;
+    width: 50%;
+    margin: auto;
 }
 
 .errColor {
-    color: red;ver
+    color: red;
 }
 
 .new-tweet h2 {
@@ -17,7 +17,7 @@
 }
 
 textarea {
-    width: 100%;
+    width: 140px;
 }
 
 .counter {
