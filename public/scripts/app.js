@@ -7,26 +7,28 @@ $(document).ready(function() {
 // returns array from what is typed into textarea
 $('#tweetForm').on('submit', function(e) {
     e.preventDefault();
-    // checks for empty, then too much ...
-    // if ($(this).children("textarea").val() == "") {
-    //         alert("Your tweet is waiting for your input.")
-    //         return false;
-    //     } else if ($("textarea").val().length > 140) {
-    //         alert("Your tweet has exceeded the 140 character limit.")
-    //         return false;
-    //     /* now good -> posts to /tweets w/new prop's ... 
-    //             & calls loadTweets */
-    //         } else {
+    console.log(this)
+    //checks for empty, then too much ...
+    if ($('.new-tweet textarea').val() === "") {
+            alert("Your tweet is waiting for your input.")
+            return false;
+        } else if ($('.new-tweet textarea').val().length > 140) {
+            alert("Your tweet has exceeded the 140 character limit.")
+            return false;
+        /* now good -> posts to /tweets w/new prop's ... 
+                & calls loadTweets */
+            } else {
                 $.ajax('/tweets', {
                 data: $(this).serialize(),
                 method: 'POST',
-                complete: function(){
+                complete: function() {
                     loadTweets();
-                }
-            // })
-        })
+                    }
+                });
+            };
 });
 
+ // called from above AJAX post request returns all tweets.
 function loadTweets() {
     $.ajax('/tweets', { method: 'GET'})
         .then(function(tweets){
