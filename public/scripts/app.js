@@ -1,14 +1,13 @@
 /*
  * Client-side JS logic goes here  jQuery is already loaded
  */
- /*
- fake data below
- */
 
-/$(document).ready(function() { 
+
+$(document).ready(function() { 
 
 // post form for tweet
-const $form = $(aTweet)
+const $form = $(aTweet);
+
 $form.on('submit', function(event) {
     evt.preventDefault();
     $.ajax({
@@ -16,8 +15,7 @@ $form.on('submit', function(event) {
         data: $(this).serialize(),
         method: 'POST',
         success: loadTweets
-        },
-    })uest
+        });
  })
 
 function loadTweets() {
@@ -48,6 +46,6 @@ function renderTweets(tweet) {
     $("#tweets-container").prepend(twtHTML)
     });
   };
-// })
+})
 
 renderTweets();
