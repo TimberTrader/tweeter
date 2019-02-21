@@ -17,7 +17,7 @@ $form.on('submit', function(event) {
         method: 'POST',
         success: loadTweets
         },
-    })
+    })uest
  })
 
 function loadTweets() {
