@@ -4,8 +4,13 @@
     min-width: 450px;
     background-color: white;
     margin: 20px auto;
+    opacity: 0.8;
+    border: 1px solid #aaa;
 }
 
+.tweet:hover {
+    opacity: 1;
+}
 .tweet header {
     display: flex;
     align-items: center;
