@@ -2,7 +2,22 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+It was made as a demonstartion of my development skills after three weeks of Lighthouse Lab's
+Web Development Bootamp.
+
+It demonstrated the use of development tools such as JQuery & Javascript, CSS, HTML, and mongo (the JS shell for MongoDb).
+This application  was built on a Node server / MongoDb databse.
+This project also demonstrates the use of .git and Github in managing a project for a sinle developer.
+
+Users are presented with an easy to use interface which allows them to tweet themselves. When the single page application is refreshed all tweets posted to the database are shwon from last post to the earliest post.
+
+Clicking on the compose button reveals a text box to enter a 140 character tweet. Tweeter will warn (and ultimatley won't allow) users to post an empty tweet or to post a tweet over the chaarcter limit. Simpole animatins enhance the user experience.
+
+
+
+Pictures of Tweeters two interface staes are shown below.
+Screen Shot 2019-02-22 at 3.57.59 PM.png
+Screen Shot 2019-02-22 at 3.58.13 PM.png
 
 ## Getting Started
 
@@ -12,6 +27,8 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Dependencies
-
-- Express
-- Node 5.10.x or above
+    -- "body-parser": "^1.15.2",
+    -- "chance": "^1.0.2",
+    -- "express": "^4.13.4",
+    -- "md5": "^2.1.0",
+    -- "mongodb": "^2.2.36"
