@@ -21,29 +21,31 @@ $(".button").on("click", function() {
     $(".new-tweet").slideToggle();
     $("textarea").focus();
     $("body").scrollTop(0);
-  });
+});
 
 // returns array from what is typed into textarea
 $('#tweetForm').on('submit', function(e) {
     e.preventDefault();
-    //checks for empty, then too much ...
+    //checks for empty (too many chars is  ...
     if ($('.new-tweet textarea').val() === "") {
-        $("#empty").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+        $('#empty').html("Start Tweeting!").error
             return false;
-        } else if ($('.new-tweet textarea').val().length > 140) {
-            $("#overLimit").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
-            return false;
-        /* now good -> posts to /tweets w/new prop's ... 
-                & calls loadTweets */
-            } else {
-                $.ajax('/tweets', {
-                data: $(this).serialize(),
-                method: 'POST',
-                complete: function() {
-                    loadTweets();
-                    }
-                });
-            };
+    } else if (($('.new-tweet textarea').val()).length > 140) {
+                $('#empty').html("You have too many characters!").error
+                return false;
+    /* now good -> posts to /tweets w/new prop's & calls loadTweets */
+    } else {
+        $('#empty').html("");
+        $.ajax('/tweets', {
+            data: $(this).serialize(),
+            method: 'POST',
+            complete: function() {
+                $('.new-tweet textarea').val('');
+                $('.counter')[0].innerHTML = '140';
+                loadTweets();
+            }
+        });
+    };
 });
 
  // called from above AJAX post request returns all tweets.
@@ -51,8 +53,10 @@ function loadTweets() {
     $.ajax('/tweets', { method: 'GET'})
         .then(function(tweets){
             renderTweets(tweets);
-        });
+    });
 }
+
+// prevent malicious scipts entering through text input
 function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -69,14 +73,14 @@ function createTweetElement(tweetData) {
             <p class="handle">${tweetData.user.handle}</p>
         </header>  
         <div>${escape(tweetData.content.text)}</div> 
-         <footer class="footer">
+        <footer class="footer">
             <abbr class="timeago" title="">${daysSince(tweetData.created_at)}</abbr>
             <img class="icons" src="/images/flag.png">
             <img class="icons" src="/images/repost.png">
             <img class="icons" src="/images/fave.png">
-            </footer>
-        </article>`
-        )};
+        </footer>
+    </article>`
+)};
         
 /* renders " a single tweet" into a collection  of tweets for "tweets container"
 calls tweet element and passes tweet object */
@@ -85,13 +89,12 @@ function renderTweets(tweet) {
         let twtHTML = createTweetElement(tweet);
         $("#tweets-container").prepend(twtHTML)
     });
-    ;
   };
-
 });
 
+// calaculates # of days since last date
 function daysSince (date){
     let days = Math.ceil((Date.now() - date) / 86400000);
     return `${days} days ago`
-  }
+}
 

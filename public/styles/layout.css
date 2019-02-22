@@ -18,19 +18,12 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
-}
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
- body {
   font-family: "Roboto Condensed";
-  /*set layout as grid*/
 }
 
 main.container {
   width: 450px;
   margin: 80px auto;
   padding-top: 40px;
- }
+  background-color: #fff;
+}

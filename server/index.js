@@ -7,12 +7,14 @@ const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
 
+// set up MongoDb
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+// set connection to mongoDb --- display error(...if) and display confirmation on success
 MongoClient.connect(MONGODB_URI, (err, db) => {
   const DataHelpers = require("./lib/data-helpers.js")(db);
   const tweetsRoutes = require("./routes/tweets")(DataHelpers);

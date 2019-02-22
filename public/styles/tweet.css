@@ -1,9 +1,7 @@
 .tweet {
     border-radius: 1em;
-    border: 10em;
-    min-width: 450px;
     background-color: white;
-    margin: 20px auto;
+    margin: 30px;
     opacity: 0.8;
     border: 1px solid #aaa;
 }

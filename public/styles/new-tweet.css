@@ -1,11 +1,9 @@
 .new-tweet {
-    display: none;
     border-radius: 1em;
-    border: 5em;
+    border: 1px solid lightgrey;
     background-color: lightgrey;
     padding: 12px;
-    margin: auto;
-    overflow: auto;
+    margin: 2em;
 }
 
 .errColor {
@@ -29,10 +27,8 @@ input[form]:hover {
     background-color: whitesmoke
 }
 
-.new-tweet .error {
-    display: inline-block;
-}
-.new-tweet .error p {
+.error {
     margin: 0 20px;
     color: red;
+    padding: 5px;
 }
