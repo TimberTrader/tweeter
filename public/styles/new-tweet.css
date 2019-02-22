@@ -1,9 +1,11 @@
 .new-tweet {
+    display: none;
     border-radius: 1em;
     border: 5em;
     background-color: lightgrey;
     padding: 12px;
     margin: auto;
+    overflow: auto;
 }
 
 .errColor {
@@ -25,4 +27,12 @@ textarea {
 
 input[form]:hover {
     background-color: whitesmoke
+}
+
+.new-tweet .error {
+    display: inline-block;
+}
+.new-tweet .error p {
+    margin: 0 20px;
+    color: red;
 }

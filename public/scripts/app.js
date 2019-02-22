@@ -1,19 +1,37 @@
 /*
  * Client-side JS logic goes here  jQuery is already loaded
  */
+"use strict"
 
-$(document).ready(function() {    
+$(document).ready(function() {
+
+// display all tweets on page reload
+$.getJSON({
+    url: 'http://localhost:8080/tweets',
+    method: 'GET',
+    data: {get_param: 'value'},
+    success: function (data) {
+            renderTweets(data);
+            console.log('Success loading original database!');
+    }
+});
+
+// exposes new-tweet by scolling tweets-container down
+$(".button").on("click", function() {
+    $(".new-tweet").slideToggle();
+    $("textarea").focus();
+    $("body").scrollTop(0);
+  });
 
 // returns array from what is typed into textarea
 $('#tweetForm').on('submit', function(e) {
     e.preventDefault();
-    console.log(this)
     //checks for empty, then too much ...
     if ($('.new-tweet textarea').val() === "") {
-            alert("Your tweet is waiting for your input.")
+        $("#empty").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
             return false;
         } else if ($('.new-tweet textarea').val().length > 140) {
-            alert("Your tweet has exceeded the 140 character limit.")
+            $("#overLimit").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
             return false;
         /* now good -> posts to /tweets w/new prop's ... 
                 & calls loadTweets */
@@ -51,18 +69,29 @@ function createTweetElement(tweetData) {
             <p class="handle">${tweetData.user.handle}</p>
         </header>  
         <div>${escape(tweetData.content.text)}</div> 
-            <footer>${tweetData.created_at}</footer>
+         <footer class="footer">
+            <abbr class="timeago" title="">${daysSince(tweetData.created_at)}</abbr>
+            <img class="icons" src="/images/flag.png">
+            <img class="icons" src="/images/repost.png">
+            <img class="icons" src="/images/fave.png">
+            </footer>
         </article>`
         )};
- 
+        
 /* renders " a single tweet" into a collection  of tweets for "tweets container"
-  calls tweet element and passes tweet object */
+calls tweet element and passes tweet object */
 function renderTweets(tweet) {
-    console.log('tweet', tweet)
     tweet.forEach(tweet => {
         let twtHTML = createTweetElement(tweet);
-    $("#tweets-container").prepend(twtHTML)
+        $("#tweets-container").prepend(twtHTML)
     });
+    ;
   };
-})
+
+});
+
+function daysSince (date){
+    let days = Math.ceil((Date.now() - date) / 86400000);
+    return `${days} days ago`
+  }
 
