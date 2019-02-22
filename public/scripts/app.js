@@ -35,7 +35,12 @@ function loadTweets() {
             renderTweets(tweets);
         });
 }
-
+function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+  
 // takes dataObject and maps to the html template representing a tweet
 function createTweetElement(tweetData) {
     return (
@@ -45,7 +50,7 @@ function createTweetElement(tweetData) {
             <h2 class="user">${tweetData.user.name}</h2>
             <p class="handle">${tweetData.user.handle}</p>
         </header>  
-        <div>${tweetData.content.text}</div> 
+        <div>${escape(tweetData.content.text)}</div> 
             <footer>${tweetData.created_at}</footer>
         </article>`
         )};
