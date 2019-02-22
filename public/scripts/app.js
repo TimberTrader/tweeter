@@ -61,7 +61,7 @@ function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  };
+};
   
 // takes dataObject and maps to the html template representing a tweet
 function createTweetElement(tweetData) {
@@ -90,11 +90,12 @@ function renderTweets(tweet) {
         $("#tweets-container").prepend(twtHTML)
     });
   };
-});
-
 // calaculates # of days since last date
 function daysSince (date){
     let days = Math.ceil((Date.now() - date) / 86400000);
     return `${days} days ago`
 }
+
+});
+
 
