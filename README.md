@@ -16,8 +16,8 @@ Clicking on the compose button reveals a text box to enter a 140 character tweet
 
 
 Pictures of Tweeters two interface staes are shown below.
-Screen Shot 2019-02-22 at 3.57.59 PM.png
-Screen Shot 2019-02-22 at 3.58.13 PM.png
+![tweeter screenshot 1](https://github.com/TimberTrader/imagesforReadMe)
+![tweeter screenshot 2](https://github.com/TimberTrader/imagesforReadMe)
 
 ## Getting Started
 
